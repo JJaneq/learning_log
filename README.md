@@ -1,0 +1,1 @@
+Learning log app based on a project from the book Python Crash Course, 3rd Edition. It's mostly the same app, but modified to work with newer version of Django and to use PostgreSQL instead of SQLite.
