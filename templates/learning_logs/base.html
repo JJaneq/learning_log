@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning log</title>
+</head>
+<body>
+  <p>
+    <a href="{% url 'learning_logs:index' %}">Learning log</a> -
+    <a href="{% url 'learning_logs:topics' %}">Tematy</a> -
+    {% if user.is_authenticated %}
+      Witaj, {{ user.username }}.
+      <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+  {% csrf_token %}
+  <button type="submit">Wyloguj</button>
+</form>
+    {% else %}
+      <a href="{% url 'users:login' %}">Zaloguj</a>
+      <a href="{% url 'users:register' %}">Zarejestruj</a>
+    {% endif %}
+  </p>
+
+  {% block content %}{% endblock content %}
+</body>
+</html>
